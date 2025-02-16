@@ -16,7 +16,7 @@ gsap.from(".image-container img", {
   ease: "power3.out",
 });
 
-gsap.from(".logo, .menu, li ", {
+gsap.from(".logo, .menu, .nav-links li ", {
   y: -30,
   opacity: 0,
   delay: 1.2,
@@ -34,7 +34,43 @@ gsap.from(".hero-text h1, .hero-text button", {
 });
 
 const menu = document.querySelector(".menu");
-menu.addEventListener("click", ()=>{
-    console.log("jfk")
-    document.querySelector(".nav-links").classList.toggle("active");
-})
+const cross = document.querySelector(".cross");
+
+
+gsap.matchMedia().add("(max-width: 768px)", () => {
+  menu.addEventListener("click", () => {
+    gsap.to(".sidebar", {
+      right: "0",
+      duration: 0.5,
+      ease: "power1.out",
+    });
+  });
+  
+  cross.addEventListener("click", () => {
+    gsap.to(".sidebar", {
+      right: "-100%",
+      duration: 0.5,
+      ease: "power1.out",
+    });
+  });
+});
+
+gsap.matchMedia().add("(min-width: 769px)", () => {
+  menu.addEventListener("click", () => {
+    gsap.to(".sidebar", {
+      right: "0",
+      duration: 0.5,
+      ease: "power1.out",
+    });
+  });
+  
+  cross.addEventListener("click", () => {
+    gsap.to(".sidebar", {
+      right: "-30%",
+      duration: 0.5,
+      ease: "power1.out",
+    });
+  });
+});
+
+
