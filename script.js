@@ -16,15 +16,15 @@ gsap.from(".image-container img", {
   ease: "power3.out",
 });
 
-gsap.from(".logo, .menu, .nav-links li ", {
-  y: -30,
+gsap.from(".logo, .nav-links li", {
+  y: -20,  // Slightly reduced movement for a softer entrance
   opacity: 0,
-  delay: 1.2,
-  duration: 0.6,
-  stagger: 0.2,
-  ease: "power1.out",
-  // ease : "bounce.out(1.7)"
+  delay: 1.3, // Starts a bit earlier for a smoother experience
+  duration: 1, // Increased duration for a gradual effect
+  stagger: 0.15, // Reducing the delay between items for fluid motion
+  ease: "expo.out", // Best for a smooth and natural feel
 });
+
 
 gsap.from(".hero-text h1, .hero-text button", {
   x: -50,
@@ -45,7 +45,6 @@ gsap.matchMedia().add("(max-width: 768px)", () => {
       ease: "power1.out",
     });
   });
-  
   cross.addEventListener("click", () => {
     gsap.to(".sidebar", {
       right: "-100%",
@@ -59,15 +58,16 @@ gsap.matchMedia().add("(min-width: 769px)", () => {
   menu.addEventListener("click", () => {
     gsap.to(".sidebar", {
       right: "0",
-      duration: 0.5,
+      duration: 0.6,
       ease: "power1.out",
     });
+
   });
   
   cross.addEventListener("click", () => {
     gsap.to(".sidebar", {
       right: "-30%",
-      duration: 0.5,
+      duration: 0.6,
       ease: "power1.out",
     });
   });
